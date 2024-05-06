@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d394bc9b763382042b449fb4d03ff4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: {fileID: 1607239263}
+  _bulletsPool: {fileID: 1607239263}
   _reloadTime: 1
   _spawnPoint: {fileID: 1505157743}
 --- !u!114 &50964270

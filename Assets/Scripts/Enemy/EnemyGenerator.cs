@@ -31,8 +31,7 @@ public class EnemyGenerator : MonoBehaviour
         Vector3 spawnPoint = new(transform.position.x, spawnPositionY, transform.position.z);
 
         var enemy = _pool.GetObject().GetComponent<Enemy>();
-        enemy.SetPool(_pool);
-        enemy.GetComponent<Attaker>().SetPool(_bulletsPool);
+        enemy.Init(_pool, _bulletsPool);
 
         enemy.gameObject.SetActive(true);
         enemy.transform.position = spawnPoint;

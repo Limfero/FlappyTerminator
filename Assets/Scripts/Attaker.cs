@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Attaker : MonoBehaviour
 {
-    [SerializeField] private ObjectPool _pool;
+    [SerializeField] private ObjectPool _bulletsPool;
     [SerializeField] private float _reloadTime;
     [SerializeField] private Transform _spawnPoint;
 
@@ -27,7 +27,7 @@ public class Attaker : MonoBehaviour
         _coroutine = StartCoroutine(Reload());
     }
 
-    public void SetPool(ObjectPool pool) => _pool = pool;
+    public void SetPool(ObjectPool pool) => _bulletsPool = pool;
 
     public void Attack()
     {
@@ -35,9 +35,8 @@ public class Attaker : MonoBehaviour
         {
             _canAttack = false;
 
-            Bullet bullet = _pool.GetObject().GetComponent<Bullet>();
-            bullet.SetPool(_pool);
-            bullet.SetSender(gameObject);
+            Bullet bullet = _bulletsPool.GetObject().GetComponent<Bullet>();
+            bullet.Init(_bulletsPool, gameObject);
 
             bullet.gameObject.SetActive(true);
             bullet.transform.SetPositionAndRotation(_spawnPoint.position, transform.rotation);

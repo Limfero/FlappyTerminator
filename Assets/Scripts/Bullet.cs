@@ -19,10 +19,13 @@ public class Bullet : MonoBehaviour
         if (collision.GetComponent<Enemy>() && _sender.TryGetComponent(out Bird bird))
             bird.AddScore();
 
-        _pool.PutObject(gameObject);
+        if(collision.GetComponent<Bullet>() == false)
+            _pool.PutObject(gameObject);
     }
 
-    public void SetPool(ObjectPool pool) => _pool = pool;
-
-    public void SetSender(GameObject sender) => _sender = sender;
+    public void Init(ObjectPool pool, GameObject sender)
+    {
+        _pool = pool;
+        _sender = sender;
+    }
 }

@@ -35,9 +35,13 @@ public class Enemy : MonoBehaviour
             _animator.SetTrigger(AttackTrigger);
     }
 
-    private void AttackToggle() => _attacker.Attack(); 
+    public void Init(ObjectPool pool, ObjectPool bulletsPool)
+    {
+        _pool = pool;
+        _attacker.SetPool(bulletsPool);
+    }
 
-    public void SetPool(ObjectPool pool) => _pool = pool;
+    private void AttackToggle() => _attacker.Attack();
 
     private void Die() => _pool.PutObject(gameObject);
 }

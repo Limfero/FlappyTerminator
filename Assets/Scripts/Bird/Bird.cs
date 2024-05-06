@@ -8,10 +8,9 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Bird : MonoBehaviour
 {
-    private const string Fire1 = nameof(Fire1);
     private const string AttackTrigger = nameof(AttackTrigger);
 
-    private BirdMover _birdMover;
+    private BirdMover _mover;
     private CollisionHandler _handler;
     private ScoreCounter _scoreCounter;
     private Attaker _attaker;
@@ -23,7 +22,7 @@ public class Bird : MonoBehaviour
     {
         _handler = GetComponent<CollisionHandler>();
         _scoreCounter = GetComponent<ScoreCounter>();
-        _birdMover = GetComponent<BirdMover>();
+        _mover = GetComponent<BirdMover>();
         _attaker = GetComponent<Attaker>();
         _animator = GetComponent<Animator>();
     }
@@ -48,15 +47,12 @@ public class Bird : MonoBehaviour
 
     private void AttackToggle() => _attaker.Attack();
 
-    private void ProcessCollision()
-    {
-        GameOver?.Invoke();
-    }
+    private void ProcessCollision() => GameOver?.Invoke();
 
     public void Reset()
     {
         _scoreCounter.Reset();
-        _birdMover.Reset();
+        _mover.Reset();
         _attaker.Reset();
     }
 }
