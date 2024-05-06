@@ -22,7 +22,7 @@ public class Game : MonoBehaviour
         _bird.GameOver -= OnGameOver;
     }
 
-    private void Start()
+    private void Awake()
     {
         Time.timeScale = 0;
         _startScreen.Open();

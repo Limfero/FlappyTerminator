@@ -1576,7 +1576,7 @@ MonoBehaviour:
   - {fileID: 243075176}
   - {fileID: 1607239263}
   - {fileID: 360661102}
-  _scoreCounter: {fileID: 0}
+  _scoreCounter: {fileID: 50964270}
 --- !u!1 &621512743
 GameObject:
   m_ObjectHideFlags: 0
